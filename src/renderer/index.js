@@ -5,11 +5,13 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 import "./styles.css";
+import Watch from "./components/Watch";
 
 class App extends Component {
   render() {
     return (
       <div id="pomodoro-app">
+        <Watch />
         <div id="container">
           <div id="timer">
             <div id="time">
