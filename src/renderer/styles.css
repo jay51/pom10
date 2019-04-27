@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Tammudu');
 html,
 body {
   height: 100%;
@@ -9,12 +10,13 @@ body {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
+  font-family: 'Baloo Tammudu', cursive;
 }
 
 #timer {
   color: #f00;
   font-size: 50px;
-  margin: 10px auto;
+  margin: 5px auto;
   border: 5px solid red;
   border-radius: 50%;
   width: 200px;
@@ -30,7 +32,7 @@ body {
 
 #time {
   text-align: center;
-  margin-top: 70px;
+  margin-top: 60px;
   z-index: 1;
   position: relative;
 }
@@ -49,15 +51,16 @@ body {
 }
 
 #buttons button {
+  font-family: 'Baloo Tammudu', cursive;
   background: #4da6ff;
   border: none;
   color: #fff;
   cursor: pointer;
   padding: 5px;
-  width: 90px;
+  width: 70px;
   margin: 5px 5px;
   font-size: 16px;
-  height: 50px;
+  height: 40px;
   border-radius: 50px;
   outline: none;
 }

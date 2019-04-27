@@ -11,7 +11,6 @@ class App extends Component {
   render() {
     return (
       <div id="pomodoro-app">
-        {/* <Watch /> */}
         <div id="container">
 
           <Watch />

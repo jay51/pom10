@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import fs from "fs";
+// import path from "path";
 
 export default class StopWatch extends Component {
   constructor(props) {
@@ -16,6 +18,11 @@ export default class StopWatch extends Component {
     this.onReset = this.onReset.bind(this);
     this.shortBreack = this.shortBreack.bind(this);
     this.longBreack = this.longBreack.bind(this);
+    this.onWork = this.onWork.bind(this);
+
+    // const mp3 = path.join(__static, "/audio/sound.mp3");
+    const mp3 = "audio/sound.mp3";
+    this.audio = new Audio(mp3);
   }
 
   componentDidMount() {
@@ -35,6 +42,7 @@ export default class StopWatch extends Component {
         // Order matters
         if (mins == 0 && secs <= 0) {
           this.setState({ secs: 0, mins: 1, running: !running });
+          this.playAudio();
           return;
         }
 
@@ -64,13 +72,22 @@ export default class StopWatch extends Component {
     this.setState({ secs: 0, mins: 5, currentTime: 5 });
   }
 
+  onWork() {
+    this.setState({ secs: 0, mins: 25, currentTime: 25 });
+  }
+
+  playAudio() {
+    this.audio.load();
+    this.audio.play();
+  }
+
   render() {
     const { mins, running, secs } = this.state;
 
     return (
       <div>
         <div id="timer">
-          <div id="time">
+          <div id="time" onClick={this.handleClick}>
             <span id="minutes">{mins > 9 ? mins : "0" + mins}</span>
             <span id="colon">:</span>
             <span id="seconds">{secs > 9 ? secs : "0" + secs}</span>
@@ -79,12 +96,10 @@ export default class StopWatch extends Component {
         </div>
 
         <div id="buttons">
-          <button id="work" onClick={this.handleClick}>
-            {running ? "Stop" : "Start"}
-          </button>
-          <button id="shortBreak" onClick={this.shortBreack}>Break <strong>-</strong></button>
-          <button id="longBreak" onClick={this.longBreack}>Break <strong>+</strong></button>
-          <button id="stop" onClick={this.onReset}>Reset</button>
+          <button id="shortBreak" onClick={this.shortBreack}>BREAK <strong>-</strong></button>
+          <button id="longBreak" onClick={this.longBreack}>BREAK<strong>+</strong></button>
+          <button id="stop" onClick={this.onWork}>WORK</button>
+          <button id="stop" onClick={this.onReset}>RESET</button>
         </div>
       </div>
     );
@@ -96,4 +111,4 @@ export default class StopWatch extends Component {
 // Done - Make it stop and start as it's now
 // Done - Make it count down instead of up
 // Done - Make it count down to 0 then decremant the mins
-// - Make the cericle itself a stop/start button
+// Done - Make the cericle itself a stop/start button

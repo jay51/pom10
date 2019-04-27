@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "dist": "yarn compile && electron-builder",
-    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+    "dist": "npm compile && electron-builder",
+    "dist:dir": "npm dist --dir -c.compression=store -c.mac.identity=null"
   },
   "dependencies": {
     "@babel/preset-react": "^7.0.0",

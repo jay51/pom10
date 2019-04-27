@@ -11,15 +11,20 @@ let mainWindow;
 
 function createMainWindow() {
   const window = new BrowserWindow({
-    width: 400,
-    height: 350,
+    width: 250,
+    height: 345,
     resizable: false
     // x: 0,
     // y: 0
     // frame: false
+
+    // webPreferences: {
+    // nodeIntegration: false,
+    // nodeIntegrationInWorker: false,
+    // preload: path.join(app.getAppPath(), 'preload.js')
+    // }
   });
 
-  // window.setMenu(null);
 
   if (isDevelopment) {
     window.webContents.openDevTools();
@@ -27,6 +32,7 @@ function createMainWindow() {
 
   if (isDevelopment) {
     window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
+    console.log(process.env.ELECTRON_WEBPACK_WDS_PORT);
   } else {
     window.loadURL(
       formatUrl({
