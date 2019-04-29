@@ -1,7 +1,9 @@
 {
-  "name": "electron-webpack-quick-start",
-  "version": "0.0.0",
+  "name": "pom10",
+  "version": "1.0.0",
   "license": "MIT",
+  "main": "src/main/index.js",
+  "author": "Jay51",
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import fs from "fs";
-// import path from "path";
 
 export default class StopWatch extends Component {
   constructor(props) {
@@ -20,7 +18,6 @@ export default class StopWatch extends Component {
     this.longBreack = this.longBreack.bind(this);
     this.onWork = this.onWork.bind(this);
 
-    // const mp3 = path.join(__static, "/audio/sound.mp3");
     const mp3 = "audio/sound.mp3";
     this.audio = new Audio(mp3);
   }
@@ -41,7 +38,7 @@ export default class StopWatch extends Component {
 
         // Order matters
         if (mins == 0 && secs <= 0) {
-          this.setState({ secs: 0, mins: 1, running: !running });
+          this.setState({ secs: 0, mins: this.state.currentTime, running: !running });
           this.playAudio();
           return;
         }
@@ -108,7 +105,3 @@ export default class StopWatch extends Component {
 
 
 // TODO:
-// Done - Make it stop and start as it's now
-// Done - Make it count down instead of up
-// Done - Make it count down to 0 then decremant the mins
-// Done - Make the cericle itself a stop/start button
