@@ -7,8 +7,9 @@
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "dist": "npm compile && electron-builder",
-    "dist:dir": "npm dist --dir -c.compression=store -c.mac.identity=null"
+    "dist": "npm run compile && electron-builder",
+    "dist:dir": "npm run dist --dir -c.compression=store -c.mac.identity=null",
+    "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
@@ -21,5 +22,23 @@
     "electron-builder": "20.38.4",
     "electron-webpack": "^2.6.2",
     "webpack": "4.28.4"
+  },
+  "build": {
+    "appId": "com.electron.${name}",
+    "productName": "pom10",
+    "target":"deb",
+    "icon":"32x32.png",
+    "executableName":"pom10",
+    "category":"Utility",
+    "directory": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "linux": {
+      "category": "your.app.category.type"
+    }
   }
 }
